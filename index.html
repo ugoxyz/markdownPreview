@@ -5,10 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Markdown Previewer</title>
-    <link href="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js">
+
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11./dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
     </script>
 
@@ -20,6 +21,7 @@
     </script>
     <script src="https://cdnjs.com/libraries/marked"></script>
     <script src="markdown.js"></script>
+    <link rel="stylesheet" href="index.css">
 
     <!-- marked
   
@@ -42,7 +44,7 @@
             smartypants: false,
             xhtml: false
         });
- --> 
+ -->
     <script>
         // Compile
         console.log(marked.parse("# markdowning"));
@@ -55,19 +57,24 @@
             let idEditorValue = document.getElementById("editor").value;
             let markedHTML = marked(idEditorValue);
             idPreview.innerHTML = markedHTML;
-
-
         }
 
         function myDefault() {
 
-            let placeHolder = `\
+            let placeHolder = `
+            
+![My image](https://secureservercdn.net/160.153.137.233/b0v.7d0.myftpupload.com/wp-content/uploads/2022/01/Asset-5@10x-e1641504238475-300x300.png)
+
+[This is my GitHub profile](https://github.com/ugoxyz)
+> Enter Your Markdown Code Below 
+
 # This is an H1
 ## This is an H2
 ### This is an H3
 #### This is an H4
 ##### This is an H5
-###### This is an H6
+###### This is an H6 \
+ 
 \`\`\`
 // this is multi-line code:
 
@@ -78,9 +85,8 @@ function anotherExample(firstLine, lastLine) {
 }
 \`\`\`
 
+    >This is a code block
 
-[This is a link](http://example.net/)
-    \`This is a code block\`
 **This is a bold text**
 
 > This is a block quote
@@ -88,7 +94,8 @@ function anotherExample(firstLine, lastLine) {
 - item 1
 - item 1
 - item 1
-![My image](/path/to/img.jpg)
+![My image](https://secureservercdn.net/160.153.137.233/b0v.7d0.myftpupload.com/wp-content/uploads/2022/01/Asset-5@10x-e1641504238475-300x300.png)
+
 `
             let editorArea = document.getElementById("editor");
             editorArea.value = placeHolder;
@@ -99,28 +106,50 @@ function anotherExample(firstLine, lastLine) {
 
 <body onload="myDefault()">
     <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
-    <div class="container-fluid"></div>
-    <div class="row">
-        <div class="col text-center bg-success ">
-            <h1>Markdown Previewer</h1>
+    <div class="container-fluid paddington">
+        <div class="row text-center">
+            <div class="col-12">
+                <h1 id="main-header">
+                    <p> Made By <a href="https://ugoxyz.github.io/markdownPreview/">Ugo</a></p>
+                </h1>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-6 bg-danger">
-            <p> Left Compartment </p>
-            <div class="form-group d-flex flex-column">
+        <div class="row">
+            <div class="col-6 editorWrap">
+                <div class="toolbar">
 
-                <textarea id="editor" class="form-control " cols="20" rows="20" onkeyup="updateMarkdown()"></textarea>
+                    <p> <span> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                <path
+                                    d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                <path fill-rule="evenodd"
+                                    d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                            </svg> </span> Editor </p>
+
+                </div>
+                <div class="form-group d-flex flex-column">
+
+                    <textarea id="editor" class="form-control " cols="20" rows="20"
+                        onpointerover="updateMarkdown()"></textarea>
+                </div>
+
             </div>
 
-        </div>
-        <div class="col-6 bg-info">
-            <p> Right Compartment </p>
-            <div id="preview"></div>
+            <div class="col-6 previewWrap">
+                <div class="toolbar">
+                    <p> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-eye-fill" viewBox="0 0 16 16">
+                            <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                            <path
+                                d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                        </svg> Previewer </p>
+                </div>
+                <div class="shift-left inset">
+                    <div id="preview" class="inset"></div>
+                </div>
+            </div>
         </div>
     </div>
-
-
 </body>
 
 </html>
