@@ -11,7 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
         integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
     </script>
-   
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js"
         integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous">
     </script>
@@ -42,7 +42,7 @@
             smartypants: false,
             xhtml: false
         });
- -->
+ --> 
     <script>
         // Compile
         console.log(marked.parse("# markdowning"));
@@ -55,8 +55,8 @@
             let idEditorValue = document.getElementById("editor").value;
             let markedHTML = marked(idEditorValue);
             idPreview.innerHTML = markedHTML;
-         
-           
+
+
         }
 
         function myDefault() {
@@ -89,7 +89,7 @@ function anotherExample(firstLine, lastLine) {
 - item 1
 - item 1
 ![My image](/path/to/img.jpg)
-` 
+`
             let editorArea = document.getElementById("editor");
             editorArea.value = placeHolder;
             idEditor.innerHTML = marked(placeHolder)
@@ -110,9 +110,9 @@ function anotherExample(firstLine, lastLine) {
             <p> Left Compartment </p>
             <div class="form-group d-flex flex-column">
 
-                <textarea id="editor" class="form-control "  cols="20" rows="20" onkeyup="updateMarkdown()"></textarea>
+                <textarea id="editor" class="form-control " cols="20" rows="20" onkeyup="updateMarkdown()"></textarea>
             </div>
-            
+
         </div>
         <div class="col-6 bg-info">
             <p> Right Compartment </p>
